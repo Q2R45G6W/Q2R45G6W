@@ -1,0 +1,102 @@
+import java.util.Random;
+import java.util.Scanner;
+import java.util.Random;
+import java.util.ArrayList;
+
+public class UTS14NOV2022{
+    int jumlahmenufavorit = 4;
+    static int totalmenufavorit = 1250;
+    public static String[] kopiLatteBelate = new String[400];
+    public static String[] goncanganjiwa = new String[300];
+    public static String[] jalankenangan = new String[300];
+    public static String[] tanparasa = new String[250];
+
+    public static void printinfotransaksi() {
+        int totalkopilattebelate = 0;
+        int totalsisa =0;
+        for (int index = 0; index < kopiLatteBelate.length; index++){
+            if (kopiLatteBelate[index] != null) {
+                totalkopilattebelate++;
+            }
+        }
+        int totalgoncanganjiwa = 0;
+        for (int index = 0; index < goncanganjiwa.length; index++){
+            if (goncanganjiwa[index] !=null){
+                totalgoncanganjiwa++;
+
+            }
+        }
+        int totaljalankenangan = 0;
+        for (int index = 0; index < jalankenangan.length; index++){
+            if (goncanganjiwa[index] !=null){
+                totaljalankenangan++;
+
+            }
+        }
+        int totaltanparasa = 0;
+        for (int index = 0; index < tanparasa.length; index++){
+            if (tanparasa[index] !=null){
+                totaltanparasa++;
+            }
+        }
+        totalsisa = totalmenufavorit - totalkopilattebelate - totalgoncanganjiwa - totaljalankenangan - totaltanparasa;
+        System.out.println("total penjualan kopi latte =" + totalkopilattebelate + "total penjualan kopi goncanganjiwa =" + totalgoncanganjiwa + "total prnjualan kopi jalankenagan =" + "total prnjuslsn kopi tanpa rasa =" + totaltanparasa );
+        System.out.println("jumlah terjual =" + totalmenufavorit + "sisa cup=" + totalsisa);
+        System.out.println();
+
+            }
+            public static void ChekIndexArray(String[] MyArray,String kopi){
+        int indexNow = 0;
+        for (int index = 0; index<MyArray.length; index++){
+            if (MyArray[index] !=null){
+                indexNow = index+1;
+            }
+        }
+        if (indexNow<MyArray.length){
+            MyArray [indexNow] = kopi;
+        }
+            }
+            public static void simpankopi (int angkaRandom, String kopi){
+        switch (angkaRandom){
+            case 1:
+                ChekIndexArray(kopiLatteBelate,kopi);
+                System.out.println("anda membeli kopi Latte Be Later");
+                break;
+            case 2:
+                ChekIndexArray(goncanganjiwa,kopi);
+                System.out.println("anda membeli kopi goncangan jiwa");
+                break;
+            case 3:
+                ChekIndexArray(jalankenangan,kopi);
+                System.out.println("anda membeli kopi jalan kenanganan");
+                break;
+            case 4:
+                ChekIndexArray(tanparasa,kopi);
+                System.out.println("anda membeli kopi tanpa rasa");
+                break;
+        }
+            }
+            public static void jumlahterjual(){
+                Scanner InputData = new Scanner(System.in);
+                while (true){
+                    System.out.println("nama pembeli");
+                    String namapembeli = InputData.nextLine();
+                    if (namapembeli.isBlank()){
+                    }else{
+                        Random hasilRandom = new Random();
+                        int jenisRandom = hasilRandom.nextInt(4)+1;
+                        simpankopi(jenisRandom,namapembeli);
+                    }
+                }
+            }
+
+
+
+
+
+    public static void main(String[] args){
+        jumlahterjual();
+
+    }
+
+    }
